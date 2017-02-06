@@ -33,6 +33,20 @@ func IsRedirect(err error) (Redirect, bool) {
 	return e, ok
 }
 
+// BadRequest is an error type used for representing a bad request error.
+type BadRequest struct {
+	Err error // Not nil.
+}
+
+// Error returns BadRequest.Err.Error().
+func (b BadRequest) Error() string { return b.Err.Error() }
+
+// IsBadRequest reports if err is considered a bad request error, returning it if so.
+func IsBadRequest(err error) (BadRequest, bool) {
+	e, ok := err.(BadRequest)
+	return e, ok
+}
+
 // HTTP is an error type used for representing a non-nil error with a status code.
 type HTTP struct {
 	Code int
