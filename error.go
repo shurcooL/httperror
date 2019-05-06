@@ -1,9 +1,14 @@
 package httperror
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
+
+// NotHandle is returned by a maybe HTTP handler to report
+// that it explicitly chose to not handle the given HTTP request.
+var NotHandle = errors.New("httperror: maybe HTTP handler chose to not handle request")
 
 // Method is an error type used for methods that aren't allowed.
 type Method struct {
