@@ -5,6 +5,15 @@ import (
 	"strings"
 )
 
+// Handler is like http.Handler, but with an error return value.
+//
+// If ServeHTTP returns a non-nil error value, the caller is expected to
+// handle it in some way, taking into account whether the ResponseWriter
+// was already written to.
+type Handler interface {
+	ServeHTTP(http.ResponseWriter, *http.Request) error
+}
+
 // HandleMethod handles a method error.
 func HandleMethod(w http.ResponseWriter, err Method) {
 	w.Header().Set("Allow", strings.Join(err.Allowed, ", "))
