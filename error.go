@@ -21,7 +21,8 @@ func (m Method) Error() string {
 
 // IsMethod reports if err is considered a method error, returning it if so.
 func IsMethod(err error) (Method, bool) {
-	e, ok := err.(Method)
+	var e Method
+	ok := errors.As(err, &e)
 	return e, ok
 }
 
@@ -34,7 +35,8 @@ func (r Redirect) Error() string { return fmt.Sprintf("redirecting to %s", r.URL
 
 // IsRedirect reports if err is considered a redirect, returning it if so.
 func IsRedirect(err error) (Redirect, bool) {
-	e, ok := err.(Redirect)
+	var e Redirect
+	ok := errors.As(err, &e)
 	return e, ok
 }
 
@@ -48,7 +50,8 @@ func (b BadRequest) Error() string { return b.Err.Error() }
 
 // IsBadRequest reports if err is considered a bad request error, returning it if so.
 func IsBadRequest(err error) (BadRequest, bool) {
-	e, ok := err.(BadRequest)
+	var e BadRequest
+	ok := errors.As(err, &e)
 	return e, ok
 }
 
@@ -63,7 +66,8 @@ func (h HTTP) Error() string { return h.Err.Error() }
 
 // IsHTTP reports if err is considered an HTTP error, returning it if so.
 func IsHTTP(err error) (HTTP, bool) {
-	e, ok := err.(HTTP)
+	var e HTTP
+	ok := errors.As(err, &e)
 	return e, ok
 }
 
@@ -76,6 +80,7 @@ func (JSONResponse) Error() string { return "JSONResponse" }
 
 // IsJSONResponse reports if err is considered a JSON response, returning it if so.
 func IsJSONResponse(err error) (JSONResponse, bool) {
-	e, ok := err.(JSONResponse)
+	var e JSONResponse
+	ok := errors.As(err, &e)
 	return e, ok
 }
