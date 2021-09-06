@@ -1,7 +1,8 @@
 httperror
 =========
 
-[![Build Status](https://travis-ci.org/shurcooL/httperror.svg?branch=master)](https://travis-ci.org/shurcooL/httperror) [![GoDoc](https://godoc.org/github.com/shurcooL/httperror?status.svg)](https://godoc.org/github.com/shurcooL/httperror)
+[![Go Reference](https://pkg.go.dev/badge/github.com/shurcooL/httperror.svg)](https://pkg.go.dev/github.com/shurcooL/httperror)
+[![Build Status](https://travis-ci.org/shurcooL/httperror.svg?branch=master)](https://travis-ci.org/shurcooL/httperror)
 
 Package httperror provides common basic building blocks for custom HTTP frameworks.
 
@@ -11,10 +12,10 @@ Installation
 ------------
 
 ```bash
-go get -u github.com/shurcooL/httperror
+go get github.com/shurcooL/httperror
 ```
 
 License
 -------
 
--	[MIT License](https://opensource.org/licenses/mit-license.php)
+-	[MIT License](LICENSE)
